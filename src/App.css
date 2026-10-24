@@ -1,0 +1,496 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", Arial, sans-serif;
+  color: #23372b;
+  background: #f7f8f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #276749;
+  --green-dark: #174b35;
+  --cream: #f7f8f2;
+  --muted: #69776c;
+  --border: #e2e9df;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 6%;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: #46584a;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--green);
+}
+
+.landing-page {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 70px 9%;
+  color: white;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(14, 42, 27, 0.88),
+      rgba(14, 42, 27, 0.25)
+    ),
+    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1800&q=85");
+  background-size: cover;
+  background-position: center;
+}
+
+.landing-content {
+  max-width: 650px;
+}
+
+.landing-content h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  margin: 14px 0;
+}
+
+.landing-content h2 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+.landing-content > p:not(.eyebrow) {
+  max-width: 520px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #79a77e;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.primary-button {
+  background: var(--green);
+  color: white;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  background: #eaf1e7;
+  color: var(--green-dark);
+}
+
+.secondary-button:hover {
+  background: #dbe8d6;
+}
+
+.landing-page .primary-button {
+  background: #d7f0d1;
+  color: #194b30;
+}
+
+.landing-page .secondary-button {
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  color: white;
+}
+
+.page-container {
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+  padding: 46px 0 70px;
+}
+
+.section-heading {
+  text-align: center;
+  margin: 0 auto 42px;
+  max-width: 720px;
+}
+
+.section-heading h1,
+.about-card h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 10px 0;
+}
+
+.section-heading > p:last-child {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.plant-category {
+  margin-top: 46px;
+}
+
+.plant-category > h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.plant-card {
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(31, 63, 39, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(31, 63, 39, 0.1);
+}
+
+.plant-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #e4ebdf;
+}
+
+.plant-details {
+  padding: 20px;
+}
+
+.plant-details h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+
+.plant-description {
+  color: var(--muted);
+  line-height: 1.6;
+  min-height: 48px;
+  font-size: 0.94rem;
+}
+
+.plant-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.add-button {
+  width: 100%;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.cart-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #e4ebdf;
+}
+
+.cart-product-info h3 {
+  margin: 0 0 8px;
+}
+
+.cart-product-info p {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0;
+}
+
+.quantity-button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #f6f8f3;
+  font-size: 1.2rem;
+}
+
+.delete-button,
+.clear-cart-button {
+  border: none;
+  background: transparent;
+  color: #b33a3a;
+  padding: 4px 0;
+  text-decoration: underline;
+}
+
+.cart-line-total {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: right;
+}
+
+.cart-line-total span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.order-summary {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  position: sticky;
+  top: 95px;
+}
+
+.order-summary h2 {
+  margin-top: 0;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.summary-line,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.summary-total {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  font-size: 1.15rem;
+}
+
+.checkout-button,
+.continue-button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.clear-cart-button {
+  display: block;
+  margin: 20px auto 0;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 50px 20px;
+  background: white;
+  border-radius: 12px;
+}
+
+.empty-cart-icon {
+  font-size: 4rem;
+}
+
+.empty-cart p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.about-page {
+  min-height: 65vh;
+  padding: 70px 20px;
+  background: #f0f5ec;
+}
+
+.about-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(31, 63, 39, 0.06);
+}
+
+.about-card p {
+  line-height: 1.9;
+  color: #536257;
+}
+
+.about-card h2 {
+  margin-top: 30px;
+  color: var(--green-dark);
+}
+
+.footer {
+  text-align: center;
+  background: #183e2c;
+  color: white;
+  padding: 22px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 850px) {
+  .plant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px 5%;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .landing-page {
+    min-height: 72vh;
+    padding: 45px 6%;
+  }
+
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-image {
+    height: 250px;
+  }
+
+  .cart-row {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .cart-image {
+    width: 82px;
+    height: 100px;
+  }
+
+  .cart-line-total {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .about-card {
+    padding: 24px;
+  }
+}
